@@ -1,0 +1,33 @@
+{% extends "app/base.html" %}
+
+{% block nav_recipes %}
+  class="active"
+{%endblock%}
+
+{% block content %}
+<div class="row">
+  {% for recipe in recipes %}
+  <div class = "col-sm-6 col-md-3">
+      <div class = "thumbnail">
+
+         <img class="img-responsive img-circle" src = "{{recipe.recipe_photo.url}}" alt = "{{recipe.recipe_name}} thumbnail"/>
+      </div>
+
+      <div class = "caption">
+         <h3>{{recipe.recipe_name}}</h3>
+         <p>{{recipe.recipe_descr}}</p>
+
+         <p>
+            <a href = "{% url 'recipe_info_page' recipe.id %}" class = "btn btn-primary" role = "button">
+               More...
+            </a>
+
+         </p>
+
+      </div>
+   </div>
+   {% endfor %}
+</div>
+
+
+{% endblock %}
