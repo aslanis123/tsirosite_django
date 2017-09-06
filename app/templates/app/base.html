@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     {% load staticfiles %}
-
+    <script src="{% static 'js/tinymce/js/tinymce/tinymce.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/tinymce/js/tinymce/custom.js' %}" ></script>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'css/app.css' %}" rel="stylesheet">
+    {% block  style%}
+
+    {% endblock %}
+
+
+
   </head>
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -31,13 +37,23 @@
       </div>
     </nav>
     <div class="jumbotron jumbotron-fluid">
+      <div class="img"></div>
+      {% block video %}
+
+      {% endblock %}
       <div class="container">
-        <h1>{{title}}</h1>
+        <!--<div class="centered">
+          <h1>{{title}} </h1>
+          <p>{{year}}</p>
+        </div>-->
+        <h1>{{title}} </h1>
         <p>{{year}}</p>
+
       </div>
     </div>
     <div class="container body-content">
       {% block content %}{% endblock %}
+      
       <hr/>
       <footer>
           <p>&copy; {{ year }} - My Django Application</p>

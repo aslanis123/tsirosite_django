@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 import app.views
 from django.conf import settings
@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^(?P<recipe_id>[0-9]+)/$', app.views.recipe_info_page, name='recipe_info_page'),
     url(r'^post/new/$', app.views.post_new, name='post_new'),
+    url(r'^(?P<recipe_id>[0-9]+)/edit/$', app.views.edit_existed, name='edit_existed'),
+    url(r'^tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -40,9 +40,22 @@ def recipe_info_page(request, recipe_id):
             'title':recipe.recipe_name,
             'image':recipe.recipe_photo.url,
             'desc':recipe.recipe_descr,
+            'id':recipe.id,
 
         }
     )
+
+def edit_existed(request,recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=recipe)
+        if form.is_valid():
+            form.save()
+            return redirect('recipe_info_page', recipe_id)
+    else:
+        form = PostForm(instance=recipe)
+
+    return render(request, 'app/recipe_edit.html', {'form': form})
 
 def post_new(request):
     if request.method == 'POST':

@@ -1,33 +1,84 @@
 {% extends "app/base.html" %}
 
+{% block style %}
+  {% load staticfiles %}
+  <style type="text/css">
+
+  .row.display-flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .caption h3{
+      margin: 10px 10px 10px 10px;
+      text-align: center;
+    }
+
+    .thumbnail img{
+      width: 100%;
+      height: 200px;
+    }
+
+    .jumbotron .img{
+      background-image: url("{% static 'media/images/jumbotron_back.png' %}");
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+
+
+      overflow: hidden;
+
+
+      position:absolute;
+      top:0;left:0;
+      z-index:1;
+    }
+
+    .jumbotron {
+      position:relative;padding:50px;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .jumbotron .container {z-index:2;
+       position:relative;
+        z-index:2;
+      }
+
+  </style>
+{% endblock %}
+
 {% block nav_recipes %}
   class="active"
 {%endblock%}
 
 {% block content %}
-<div class="row">
-  {% for recipe in recipes %}
-  <div class = "col-sm-6 col-md-3">
-      <div class = "thumbnail">
+<div class="container">
+  <div class="row">
+    {% for recipe in recipes %}
+    <div class = "col-sm-6 col-md-3">
+        <div class = "thumbnail">
 
-         <img class="img-responsive img-circle" src = "{{recipe.recipe_photo.url}}" alt = "{{recipe.recipe_name}} thumbnail"/>
-      </div>
+           <img class="img-circle img-responsive" src = "{{recipe.recipe_photo.url}}" alt = "{{recipe.recipe_name}} thumbnail"/>
+        </div>
 
-      <div class = "caption">
-         <h3>{{recipe.recipe_name}}</h3>
-         <p>{{recipe.recipe_descr}}</p>
+        <div class = "caption">
+          <a href="{% url 'recipe_info_page' recipe.id %}"><h3>{{recipe.recipe_name}}</h3></a>
 
-         <p>
-            <a href = "{% url 'recipe_info_page' recipe.id %}" class = "btn btn-primary" role = "button">
-               More...
-            </a>
 
-         </p>
+           <hr/>
 
-      </div>
-   </div>
-   {% endfor %}
+
+
+        </div>
+     </div>
+     {% endfor %}
+  </div>
 </div>
+
 
 
 {% endblock %}
