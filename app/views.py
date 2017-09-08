@@ -4,7 +4,11 @@ from .models import Recipe
 from .forms import PostForm
 from django.shortcuts import redirect
 
+def landing(request):
+    return render(request, 'app/landing.html',{
 
+        'title': 'Welcome to my Journey!',
+    })
 
 def home(request):
     return render(

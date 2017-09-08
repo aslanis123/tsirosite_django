@@ -2,36 +2,23 @@
 
 {% block style %}
 {% load staticfiles %}
-<style type="text/css">
-  .jumbotron{
-    position: relative;
-    z-index:-2;
-    }
 
-    #video-background {
-    position:fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow:hidden;
-    z-index: -1;
-    width:100%;
-  }
-</style>
 {% endblock %}
 
 {% block nav_home %}
   class="active"
 {%endblock%}
 
-{% block video %}
-  <video id="video-background" preload="" muted="" autoplay="" loop="">
-    {% load staticfiles %}
-    <source src="{% static 'media/videos/home_videoTrim.mp4' %}" type="video/mp4">
-  </video>
-{% endblock %}
 
 {% block content %}
+<div class="container">
+  <div class="row">
+    <p>
+      {{title}}
+      {{year}}
+    </p>
+
+  </div>
+</div>
 
 {% endblock %}
