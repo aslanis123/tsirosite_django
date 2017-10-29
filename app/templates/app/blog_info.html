@@ -1,0 +1,35 @@
+{% extends "app/base.html" %}
+
+{% block style %}
+{% load staticfiles %}
+
+{% endblock %}
+
+{% block nav_home %}
+  class="active"
+{%endblock%}
+
+
+{%block jumbotext %}
+<h2 class="post-title">
+  {{title}}
+</h2>
+<h3 class="post-subtitle">
+  {{desc}}
+</h3>
+</a>
+<p class="post-meta">Posted by
+{{author}}
+on {{date}}</p>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    {{text|safe}}
+  </div>
+</div>
+
+{% endblock %}

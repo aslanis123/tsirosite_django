@@ -2,7 +2,7 @@
 
 {% block style %}
   {% load staticfiles %}
-  <style type="text/css">
+  <!--<style type="text/css">
 
   .row.display-flex {
       display: flex;
@@ -48,12 +48,18 @@
         z-index:2;
       }
 
-  </style>
+  </style>-->
 {% endblock %}
 
 {% block nav_recipes %}
   class="active"
 {%endblock%}
+
+{% block  jumbotext%}
+
+  <h1 style="font-style:italic;padding-top:10%;padding-right:10%;padding-left:10%;text-align:center;">At this section you can find some recipes i have created.</h1>
+
+{% endblock %}}
 
 {% block content %}
 <div class="container">

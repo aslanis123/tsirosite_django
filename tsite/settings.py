@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
+    'widget_tweaks',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -115,11 +118,22 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.hotmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dtzimoulidis@gmail.com'
+EMAIL_HOST_PASSWORD ='7mmd0bfR'
+DEFAULT_FROM_EMAIL = 'web@host.com'
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+STATIC_ROOT='C:\\Users\\dimtz\\tsirosite\\app\static\\'
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'C:\\Users\\dimtz\\tsirosite\\app\static\\media\\'
 MEDIA_URL='/media/'
+
+CKEDITOR_UPLOAD_PATH='images/'

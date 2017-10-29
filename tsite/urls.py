@@ -21,12 +21,17 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', app.views.landing, name='landing'),
+    url(r'^blog$', app.views.blog, name='blog'),
     url(r'^home$', app.views.home, name='home'),
+    url(r'^contact$', app.views.contact, name='contact'),
+    url(r'^thanks/$', app.views.thanks, name='thanks'),
     url(r'^about$', app.views.about, name='about'),
     url(r'^recipes$', app.views.recipes, name='recipes'),
     url(r'^admin/', admin.site.urls),
-    url(r'^(?P<recipe_id>[0-9]+)/$', app.views.recipe_info_page, name='recipe_info_page'),
+    url(r'^recipe/(?P<recipe_id>[0-9]+)/$', app.views.recipe_info_page, name='recipe_info_page'),
+    url(r'^blog/(?P<blog_id>[0-9]+)/$', app.views.blog_info, name='blog_info'),
     url(r'^post/new/$', app.views.post_new, name='post_new'),
     url(r'^(?P<recipe_id>[0-9]+)/edit/$', app.views.edit_existed, name='edit_existed'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
