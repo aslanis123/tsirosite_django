@@ -17,7 +17,7 @@ class Blog(models.Model):
     blog_descr = models.TextField()
     blog_author = models.ForeignKey('auth.User')
     blog_image = models.ImageField(upload_to='images/', null=True, blank=True)
-    blog_text = HTMLField(default="Nothing to show!")
+    blog_text = RichTextUploadingField()
 
     def __str__(self):
         return self.blog_title

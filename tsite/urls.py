@@ -31,7 +31,9 @@ urlpatterns = [
     url(r'^recipe/(?P<recipe_id>[0-9]+)/$', app.views.recipe_info_page, name='recipe_info_page'),
     url(r'^blog/(?P<blog_id>[0-9]+)/$', app.views.blog_info, name='blog_info'),
     url(r'^post/new/$', app.views.post_new, name='post_new'),
+    url(r'^post/new/blog/$', app.views.post_new_blog, name='post_new_blog'),
     url(r'^(?P<recipe_id>[0-9]+)/edit/$', app.views.edit_existed, name='edit_existed'),
+    url(r'^blog/(?P<blog_id>[0-9]+)/edit/$', app.views.edit_existed_blog, name='edit_existed_blog'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

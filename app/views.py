@@ -2,7 +2,7 @@ from django.shortcuts import render,get_object_or_404
 from django.core.mail import BadHeaderError, send_mail
 from datetime import datetime
 from .models import Recipe, Blog
-from .forms import PostForm, ContactForm
+from .forms import PostForm, ContactForm, BlogPostForm
 from django.shortcuts import redirect
 
 
@@ -105,6 +105,18 @@ def edit_existed(request,recipe_id):
 
     return render(request, 'app/recipe_edit.html', {'form': form})
 
+def edit_existed_blog(request,blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, instance=blog)
+        if form.is_valid():
+            form.save()
+            return redirect('blog_info', blog_id)
+    else:
+        form = BlogPostForm(instance=blog)
+
+    return render(request, 'app/blog_edit.html', {'form': form})
+
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -115,3 +127,14 @@ def post_new(request):
         form = PostForm()
 
     return render(request, 'app/recipe_edit.html', {'form': form})
+
+def post_new_blog(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('blog')
+    else:
+        form = BlogPostForm()
+
+    return render(request, 'app/blog_edit.html', {'form': form})

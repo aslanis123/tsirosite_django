@@ -1,14 +1,69 @@
+@import "bootstrap.min.css";
+
+body {
+  font-size: 20px;
+  color: #333333;
+  font-family: 'Lora', 'Times New Roman', serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  font-family: 'Gloria Hallelujah', cursive; }
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+
+
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .caption h3{
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+  }
+
+  .thumbnail img{
+    width: 100%;
+    height: 200px;
+  }
+
 .jumbotron .img{
-  background-image: url("{% static 'media/images/jumbotron_back.png' %}");
   opacity: 0.5;
   width: 100%;
   height: 100%;
   background-size: cover;
-
-
   overflow: hidden;
-
-
   position:absolute;
   top:0;left:0;
   z-index:1;
