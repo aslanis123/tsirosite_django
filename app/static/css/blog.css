@@ -1,4 +1,5 @@
 @import "bootstrap.min.css";
+@import "blog-section.css";
 
 body {
   font-size: 20px;
@@ -12,7 +13,14 @@ h4,
 h5,
 h6 {
   font-weight: 800;
-  font-family: 'Gloria Hallelujah', cursive; }
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+
+
+.navbar-default{
+
+}
 .fa {
     padding: 10px;
     font-size: 30px;
@@ -70,11 +78,13 @@ h6 {
 }
 
 .jumbotron {
-  position:relative;padding:50px;
+  position:relative;
+  padding:50px;
   width: 100%;
   height: 100vh;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0px;
 
 }
 .jumbotron .container {z-index:2;
@@ -88,4 +98,14 @@ h6 {
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f5f5f5;
+  text-align: center;
 }
